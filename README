@@ -1,4 +1,9 @@
 Chas Emerick wrote this.  Go here http://snowtide.com/jsdifflib for more
 information.
 
-Its a javascript diff library using Dojo and based on Python's SequenceMatcher.
+Its a javascript diff library based on Python's SequenceMatcher.
+
+I've updated the js code to avoid "for...in" so that this library is compatible
+with protoype, http://www.prototypejs.org/.  Check out
+http://www.prototypejs.org/api/array for more information as why the "for...in"
+construct is to be avoided.
