@@ -28,6 +28,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 DAMAGE.
 ***/
 /* Author: Chas Emerick <cemerick@snowtide.com> */
+/* Modified by: Jonathan R. Wallace <jonathan.wallace@gmail.com>, http://github.com/wallace/jsdifflib */
 diffview = {
 	/**
 	 * Builds and returns a visual diff view.  The single parameter, `params', should contain
@@ -189,10 +190,10 @@ diffview = {
 		node2.setAttribute("href", "http://snowtide.com/jsdifflib");
 		
 		tdata.push(node = document.createElement("tbody"));
-		for (var idx in rows) node.appendChild(rows[idx]);
+		for (len = rows.length, idx = 0; idx < len; ++idx) node.appendChild(rows[idx]);
 		
 		node = celt("table", "diff" + (inline ? " inlinediff" : ""));
-		for (var idx in tdata) node.appendChild(tdata[idx]);
+		for (len = tdata.length, idx = 0; idx < len; ++idx) node.appendChild(tdata[idx]);
 		return node;
 	}
 }

@@ -28,6 +28,7 @@ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF S
 DAMAGE.
 ***/
 /* Author: Chas Emerick <cemerick@snowtide.com> */
+/* Modified by: Jonathan R. Wallace <jonathan.wallace@gmail.com>, http://github.com/wallace/jsdifflib */
 __whitespace = {" ":true, "\t":true, "\n":true, "\f":true, "\r":true};
 
 difflib = {
@@ -135,19 +136,23 @@ difflib = {
 				}
 			}
 	
-			for (var elt in populardict)
+			for (len = populardict.length, idx = 0; idx < len; ++idx) {
+				elt = populardict[idx];
 				delete b2j[elt];
+			}
 			
 			var isjunk = this.isjunk;
 			var junkdict = {};
 			if (isjunk) {
-				for (var elt in populardict) {
+				for (len = populardict.length, idx = 0; idx < len; ++idx) {
+					elt = populardict[idx];
 					if (isjunk(elt)) {
 						junkdict[elt] = 1;
 						delete populardict[elt];
 					}
 				}
-				for (var elt in b2j) {
+				for (len = populardict.length, idx = 0; idx < len; ++idx) {
+					elt = populardict[idx];
 					if (isjunk(elt)) {
 						junkdict[elt] = 1;
 						delete b2j[elt];
@@ -174,7 +179,7 @@ difflib = {
 			for (var i = alo; i < ahi; i++) {
 				var newj2len = {};
 				var jdict = difflib.__dictget(b2j, a[i], nothing);
-				for (var jkey in jdict) {
+				for (len = jdict.length, jkey = 0; jkey < len; ++jkey) {
 					j = jdict[jkey];
 					if (j < blo) continue;
 					if (j >= bhi) break;
@@ -246,7 +251,7 @@ difflib = {
 	
 			var i1 = j1 = k1 = block = 0;
 			var non_adjacent = [];
-			for (var idx in matching_blocks) {
+			for (len = matching_blocks.length, idx = 0; idx < len; ++idx) {
 				block = matching_blocks[idx];
 				i2 = block[0];
 				j2 = block[1];
@@ -276,7 +281,7 @@ difflib = {
 			this.opcodes = answer;
 			var block, ai, bj, size, tag;
 			var blocks = this.get_matching_blocks();
-			for (var idx in blocks) {
+			for (len = blocks.length, idx = 0; idx < len; ++idx) {
 				block = blocks[idx];
 				ai = block[0];
 				bj = block[1];
@@ -327,7 +332,7 @@ difflib = {
 	
 			var nn = n + n;
 			var groups = [];
-			for (var idx in codes) {
+			for (len = codes.length, idx = 0; idx < len; ++idx) {
 				code = codes[idx];
 				tag = code[0];
 				i1 = code[1];
