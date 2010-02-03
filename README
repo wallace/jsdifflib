@@ -1,0 +1,4 @@
+Chas Emerick wrote this.  Go here http://snowtide.com/jsdifflib for more
+information.
+
+Its a javascript diff library using Dojo and based on Python's SequenceMatcher.
